@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ofrenda Local</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕯️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="picado" aria-hidden="true"></div>
+
+  <header>
+    <h1>Ofrenda <em>Local</em></h1>
+    <p>Write a remembrance for someone you miss. An open-weight model runs on <strong>your</strong> GPU, so their story never leaves this device.</p>
+  </header>
+
+  <main>
+    <form id="form" class="card">
+      <label>Their name <input name="name" required placeholder="Abuela Rosa"></label>
+      <label>Years <input name="years" placeholder="1938 – 2021"></label>
+      <label>Who they were to you <input name="relation" placeholder="My grandmother, who raised me"></label>
+      <label>Favorite foods <input name="foods" placeholder="Mole negro, pan de muerto, café de olla"></label>
+      <label>Favorite songs <input name="songs" placeholder="Cielito Lindo, anything by Pedro Infante"></label>
+      <label>A memory <textarea name="story" rows="4" placeholder="She sang while she cooked and always burned the first tortilla on purpose, for luck."></textarea></label>
+      <label>A photo (stays on this device) <input name="photo" type="file" accept="image/*"></label>
+      <label>Model
+        <select id="model"></select>
+      </label>
+      <button id="go" type="submit">Light the candles</button>
+      <div id="status" role="status" aria-live="polite"></div>
+      <progress id="progress" max="1" value="0" hidden></progress>
+    </form>
+
+    <section id="altar" class="altar" hidden aria-live="polite">
+      <div class="frame"><img id="photo" alt=""><span id="initial"></span></div>
+      <h2 id="altar-name"></h2>
+      <p id="altar-years" class="years"></p>
+      <p id="remembrance" class="remembrance"></p>
+      <pre id="calavera" class="calavera"></pre>
+      <div class="offerings" aria-hidden="true">
+        <span class="candle"></span><span class="flower">🌼</span><span class="candle"></span>
+        <span class="flower">🌼</span><span class="candle"></span>
+      </div>
+      <p id="offering-list" class="offering-list"></p>
+      <button id="save" type="button" hidden>Keep this ofrenda</button>
+    </section>
+  </main>
+
+  <section id="saved-wrap" class="saved-wrap" hidden>
+    <h2>Your ofrendas</h2>
+    <ul id="saved"></ul>
+  </section>
+
+  <footer>Runs fully in your browser with <a href="https://github.com/mlc-ai/web-llm">WebLLM</a> and open weights. No server, no account.</footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
